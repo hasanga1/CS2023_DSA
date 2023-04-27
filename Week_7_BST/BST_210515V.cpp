@@ -57,7 +57,7 @@ struct node *deleteNode(struct node *root, int key) {
                 }
             }
             if ((*temp)->left == nullptr && (*temp)->right == nullptr) {
-                (*temp) = nullptr;
+                delete (*temp);
                 return root;
             }
             if ((*temp)->right == nullptr) {
