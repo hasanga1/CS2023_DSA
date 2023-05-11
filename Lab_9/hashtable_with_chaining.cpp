@@ -67,7 +67,7 @@ struct HashTable{
             cout << "User not found." << endl;
             return;
         }
-	    password->search(user_name);
+	    password[hash].search(user_name);
     }
 };
 
