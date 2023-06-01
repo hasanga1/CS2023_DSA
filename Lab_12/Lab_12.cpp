@@ -19,7 +19,9 @@ int getCheapest(bool visited[6], vector<int> timeTaken, int n) {
 
 vector<int> dijkstra(int map[6][6], int n, int s) {
     bool visited[6] = {false, false, false, false, false, false};
-    vector<int> timeTaken = {0, INF, INF, INF, INF, INF};
+    vector<int> timeTaken = {INF, INF, INF, INF, INF, INF};
+
+    timeTaken[s] = 0;
 
     for (int i = 0; i < n; i++) {
         int cheapest = getCheapest(visited, timeTaken, n);
@@ -45,18 +47,20 @@ int main() {
                      {15, INF, 5, INF, 0, INF},
                      {5, INF, INF, 20, INF, 0}};
 
-    int minAvg = INF;
+    double minAvg = INF;
     vector<int> idealCities;
 
     for (int i = 0; i < 6; i++) {
         vector<int> timeTaken = dijkstra(map, 6, i);
-        int avg = 0;
+        double avg = 0;
 
         cout << "Time Taken from city " << i << "\n" << endl;
         cout << "City\t\tTime taken" << endl;
-        for (int i = 0; i < 6; i++) {
-            cout << i << "\t\t\t" << timeTaken[i] << endl;
-            avg += timeTaken[i];
+        for (int j = 0; j < 6; j++) {
+            if (i != j) {
+                cout << j << "\t\t\t" << timeTaken[j] << endl;
+                avg += timeTaken[j];
+            }
         }
         avg = avg / 5;
 
