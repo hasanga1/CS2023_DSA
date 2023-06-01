@@ -60,8 +60,13 @@ int main() {
         }
         avg = avg / 5;
 
-        if (avg <= minAvg) {
+        if (avg < minAvg) {
             minAvg = avg;
+            idealCities.clear();
+            idealCities.push_back(i);
+        }
+
+        else if (avg == minAvg) {
             idealCities.push_back(i);
         }
 
