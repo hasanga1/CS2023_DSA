@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void printMST(vector<vector<int>> mst) {
+void printMST(vector<vector<int> > mst) {
     cout << "Edge\t\tWeight" << endl;
     for (int i = 0; i < mst.size(); i++) {
         for (int j = i + 1; j < mst[0].size(); j++) {
@@ -18,8 +18,8 @@ void printMST(vector<vector<int>> mst) {
     }
 }
 
-vector<vector<int>> setMST(vector<vector<int>> adjacencyMatrix, int start) {
-    vector<vector<int>> mst(adjacencyMatrix.size(), vector<int> (adjacencyMatrix.size(), 0));
+vector<vector<int> > setMST(vector<vector<int> > adjacencyMatrix, int start) {
+    vector<vector<int> > mst(adjacencyMatrix.size(), vector<int> (adjacencyMatrix.size(), 0));
 
     vector<int> flags(adjacencyMatrix.size(), false);
     vector<int> visited;
@@ -54,14 +54,14 @@ vector<vector<int>> setMST(vector<vector<int>> adjacencyMatrix, int start) {
 
 
 int main() {
-    vector<vector<int>> adjacencyMatrix = {{0, 3, 0, 0, 0, 1},
+    vector<vector<int> > adjacencyMatrix = {{0, 3, 0, 0, 0, 1},
                                            {3, 0, 2, 1, 10, 0},
                                            {0, 2, 0, 3, 0, 5},
                                            {0, 1, 3, 0, 5, 0},
                                            {0, 10, 0, 5, 0, 4},
                                            {1, 0, 5, 0, 4, 0}};
 
-    vector<vector<int>> mst = setMST(adjacencyMatrix, 0);
+    vector<vector<int> > mst = setMST(adjacencyMatrix, 0);
 
     printMST(mst);
 }
